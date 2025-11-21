@@ -2,9 +2,9 @@
   <v-app>
     <v-main>
       <HeroSection />
+      <TransformationCarousel />
       <AboutSection />
       <ServicesSection />
-      <ContactSection />
     </v-main>
   </v-app>
 </template>
@@ -13,5 +13,5 @@
 import HeroSection from "./components/HeroSection.vue";
 import AboutSection from "./components/AboutSection.vue";
 import ServicesSection from "./components/ServicesSection.vue";
-import ContactSection from "./components/ContactSection.vue";
+import TransformationCarousel from "./components/TransformationCarousel.vue";
 </script>
