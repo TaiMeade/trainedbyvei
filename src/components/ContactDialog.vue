@@ -1,6 +1,6 @@
 <template>
-  <v-dialog :model-value="modelValue" @update:model-value="$emit('update:modelValue', $event)" max-width="60%" id="contact-dialog">
-    <v-card>
+  <v-dialog :model-value="modelValue" @update:model-value="$emit('update:modelValue', $event)" max-width="60%">
+    <v-card id="contact-dialog-card">
       <v-card-title class="text-h5" id="contact-dialog-title">
         Contact Me
       </v-card-title>
@@ -46,7 +46,8 @@ defineEmits(['update:modelValue'])
   background-color: #388f51ff;
 }
 
-#contact-dialog {
-    border-radius: 12px;
+#contact-dialog-card {
+  border-radius: 16px;
+  padding: 1rem;
 }
 </style>

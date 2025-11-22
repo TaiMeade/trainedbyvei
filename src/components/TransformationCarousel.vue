@@ -19,13 +19,8 @@ import Transformation from './Transformation.vue'
 const transformations = [
   {
     title: 'Matvei Isbell',
-    before: '/images/beforeTransformations/before1.jpg',
-    after: '/images/afterTransformations/after1.jpg'
-  },
-  {
-    title: 'Client 2',
-    before: '/images/beforeTransformations/before2.jpg',
-    after: '/images/afterTransformations/after2.jpg'
+    before: 'trainedbyvei/images/transformations/matvei1.jpg',
+    after: 'trainedbyvei/images/transformations/matvei1.jpg'
   }
 ]
 </script>
