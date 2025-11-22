@@ -51,6 +51,9 @@ const name = ref('')
 const email = ref('')
 const message = ref('')
 const loading = ref(false)
+const success = ref(false)
+const error = ref(false)
+const form = ref(null)
 
 // Validation rules
 const nameRules = [
