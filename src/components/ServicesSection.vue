@@ -4,7 +4,7 @@
 
     <v-row>
       <v-col cols="12" md="4" v-for="service in services" :key="service.title">
-        <v-card>
+        <v-card height="400">
           <v-card-title>{{ service.title }}</v-card-title>
           <v-card-text>{{ service.desc }}</v-card-text>
         </v-card>

@@ -7,10 +7,22 @@
 
       <v-row justify="center" class="px-4" >
         <v-col cols="12">
-          <v-form @submit.prevent="sendEmail">
-            <v-text-field v-model="name" label="Name" required></v-text-field>
-            <v-text-field v-model="email" label="Email" required></v-text-field>
-            <v-textarea v-model="message" label="Message" rows="4"></v-textarea>
+          <v-form ref="form" @submit.prevent="sendEmail">
+            <v-text-field 
+              v-model="name" 
+              label="Name"
+              :rules="nameRules"
+              required></v-text-field>
+            <v-text-field 
+              v-model="email" 
+              label="Email"
+              :rules="emailRules"
+              required></v-text-field>
+            <v-textarea
+              v-model="message"
+              label="Message"
+              :rules="messageRules"
+              rows="4"></v-textarea>
             <v-btn :loading="loading" type="submit" class="mt-4" id="send-msg-btn">Send</v-btn>
           </v-form>
         </v-col>
@@ -39,8 +51,20 @@ const name = ref('')
 const email = ref('')
 const message = ref('')
 const loading = ref(false)
-const success = ref(false)
-const error = ref(false)
+
+// Validation rules
+const nameRules = [
+  v => !!v || 'Name is required',
+  v => v.length >= 2 || 'Name must be at least 2 characters'
+]
+const emailRules = [
+  v => !!v || 'Email is required',
+  v => /.+@.+\..+/.test(v) || 'Email is invalid'
+]
+const messageRules = [
+  v => !!v || 'Message is required',
+  v => v.length >= 10 || 'Message must be at least 10 characters'
+]
 
 // EmailJS configuration
 const SERVICE_ID = 'trainedbyvei'
@@ -59,10 +83,15 @@ function showSnackbar(message, color = 'success') {
 }
 
 // Function to send email using EmailJS
-function sendEmail() {
+async function sendEmail() {
+  // Validate the form
+  const { valid } = await form.value.validate()
+  if (!valid) {
+    showSnackbar('Please fix the errors in the form.', 'error')
+    return
+  }
+
   loading.value = true
-  error.value = false
-  success.value = false
 
   emailjs.send(SERVICE_ID, TEMPLATE_ID, {
     name: name.value,
