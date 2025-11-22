@@ -16,16 +16,18 @@
 <script setup>
 import Transformation from './Transformation.vue'
 
+const base = import.meta.env.BASE_URL
+
 const transformations = [
   {
     title: 'Matvei Isbell',
-    before: '/trainedbyvei/images/transformations/matvei1.jpg',
-    after: '/trainedbyvei/images/transformations/matvei2.jpg'
+    before: `${base}images/transformations/matvei1.jpg`,
+    after: `${base}images/transformations/matvei2.jpg`
   },
   {
     title: 'Silar Moore',
-    before: '/trainedbyvei/images/transformations/silar1.jpg',
-    after: '/trainedbyvei/images/transformations/silar3.jpg'
+    before: `${base}images/transformations/silar1.jpg`,
+    after: `${base}images/transformations/silar3.jpg`
   }
 ]
 </script>
