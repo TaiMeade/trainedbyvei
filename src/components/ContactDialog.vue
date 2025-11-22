@@ -12,8 +12,6 @@
             <v-text-field v-model="email" label="Email" required></v-text-field>
             <v-textarea v-model="message" label="Message" rows="4"></v-textarea>
             <v-btn :loading="loading" type="submit" class="mt-4" id="send-msg-btn">Send</v-btn>
-            <div v-if="success" style="color: green;">Message sent!</div>
-            <div v-if="error" style="color: red;">Failed to send. Try again.</div>
           </v-form>
         </v-col>
       </v-row>
@@ -27,12 +25,16 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
+  <v-snackbar v-model="snackbar" :color="snackbarColor" timeout="3000">
+    {{ snackbarText }}
+  </v-snackbar>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import emailjs from '@emailjs/browser';
 
+// Form state
 const name = ref('')
 const email = ref('')
 const message = ref('')
@@ -40,10 +42,23 @@ const loading = ref(false)
 const success = ref(false)
 const error = ref(false)
 
+// EmailJS configuration
 const SERVICE_ID = 'trainedbyvei'
 const TEMPLATE_ID = 'template_17nzpmp'
 const PUBLIC_KEY = 'IF2mEdPZwwhrt0v4e'
 
+// Snackbar state
+const snackbar = ref(false)
+const snackbarText = ref('')
+const snackbarColor = ref('success')
+
+function showSnackbar(message, color = 'success') {
+  snackbarText.value = message
+  snackbarColor.value = color
+  snackbar.value = true
+}
+
+// Function to send email using EmailJS
 function sendEmail() {
   loading.value = true
   error.value = false
@@ -60,10 +75,12 @@ function sendEmail() {
       name.value = ''
       email.value = ''
       message.value = ''
+      showSnackbar('Message sent!', 'success')
     })
     .catch(() => {
       loading.value = false
       error.value = true
+      showSnackbar('Failed to send. Try again.', 'error')
     })
 }
 
