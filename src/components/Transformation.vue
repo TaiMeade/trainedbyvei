@@ -6,11 +6,9 @@
       <v-row>
         <v-col cols="6">
           <v-img :src="before" alt="Before" class="rounded-lg" cover></v-img>
-          <p class="text-center mt-2">Before</p>
         </v-col>
         <v-col cols="6">
           <v-img :src="after" alt="After" class="rounded-lg" cover></v-img>
-          <p class="text-center mt-2">After</p>
         </v-col>
       </v-row>
     </v-card-text>
