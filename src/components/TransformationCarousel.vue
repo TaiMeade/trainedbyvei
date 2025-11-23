@@ -19,13 +19,13 @@ import Transformation from './Transformation.vue'
 const transformations = [
   {
     title: 'Matvei Isbell',
-    before: `./images/matvei1.jpg`,
-    after: `./images/matvei2.jpg`
+    before: `./src/assets/matvei1.jpg`,
+    after: `./src/assets/matvei2.jpg`
   },
   {
     title: 'Silar Moore',
-    before: `./images/silar1.jpg`,
-    after: `./images/silar3.jpg`
+    before: `./src/assets/silar1.jpg`,
+    after: `./src/assets/silar3.jpg`
   }
 ]
 </script>
