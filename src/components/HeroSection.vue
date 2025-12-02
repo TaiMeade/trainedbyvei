@@ -5,6 +5,21 @@
     <p class="text-h6 mt-4">
       Personalized coaching to help you reach your fitness goals.
     </p>
+
+    <v-row class="mx-auto my-8"  justify="center" style="max-width: 80%;">
+      <v-col cols="5">
+        <v-avatar size="25vw">
+          <v-img
+            src="./images/matveiCasual1.jpg"
+            alt="Hero Image"
+          />
+        </v-avatar>
+      </v-col>
+      <v-col cols="6" class="d-flex flex-column justify-center mb-6">
+        <AboutSection />
+      </v-col>
+    </v-row>
+
     <v-btn 
     size="large" 
     class="mt-6"
@@ -20,6 +35,7 @@
 <script setup>
 import { ref } from 'vue'
 import ContactDialog from './ContactDialog.vue'
+import AboutSection from "./AboutSection.vue";
 
 const dialog = ref(false)
 </script>

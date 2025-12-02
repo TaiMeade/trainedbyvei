@@ -1,6 +1,6 @@
 <template>
   <v-container class="py-16">
-    <h2 class="text-h4 font-weight-bold mb-4">About Me</h2>
+    <h2 class="text-h4 font-weight-bold mb-4">Matvei Isbell</h2>
     <p>
       I'm a certified fitness coach with 5+ years of experience helping people
       get stronger, healthier, and more confident. I want to help you reach your goals, 

@@ -1,9 +1,11 @@
 <template>
-  <v-dialog :model-value="modelValue" @update:model-value="$emit('update:modelValue', $event)" max-width="60%">
+  <v-dialog :model-value="modelValue" @update:model-value="$emit('update:modelValue', $event)" max-width="50%">
     <v-card id="contact-dialog-card">
-      <v-card-title class="text-h5" id="contact-dialog-title">
+      <v-card-title class="text-h5 d-flex justify-space-between" id="contact-dialog-title">
         Contact Me
+        <v-icon color="background" @click="$emit('update:modelValue', false)" id="dialog-close-btn" icon="mdi-close"/>
       </v-card-title>
+      
 
       <v-row justify="center" class="px-4" >
         <v-col cols="12">
@@ -30,10 +32,6 @@
 
       <v-card-actions>
         <v-spacer></v-spacer>
-
-        <v-btn color="secondary" @click="$emit('update:modelValue', false)">
-          Close
-        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -136,6 +134,15 @@ defineEmits(['update:modelValue'])
 
 #contact-dialog-card {
   border-radius: 16px;
+}
+
+#contact-dialog-title {
+  background-color: #49B568;
+  color: white;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
   padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
 }
 </style>
